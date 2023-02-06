@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update a User</title>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #333;
+    }
+
+    li {
+        float: left;
+    }
+
+    li a {
+        display: block;
+        color: white;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+    }
+
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+        background-color: #111;
+    }
+
+    .active {
+        background-color: #04AA6D;
+    }
+
+    li {
+        border-right: 1px solid #bbb;
+    }
+
+    li:last-child {
+        border-right: none;
+    }
+
+    form {
+        width: 800px;
+        margin: 0 auto;
+        padding-top: 100px;
+    }
+</style>
+
+<body>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/create">Creaate user</a></li>
+        <li><a class="active" href="/create">Update a user</a></li>
+    </ul>
+    <form action="/update-user" method="post">
+        <fieldset>
+            <legend>Update User:</legend>
+            <div style="display: none;"><label for="id"> Name:</label>
+                <input type="text" id="id" name="id" value="<%=listUsers.id%>"><br><br>
+            </div>
+            <label for="lname"> Name:</label>
+            <input type="text" id="lname" name="lname" value="<%=listUsers.name%>"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" value="<%=listUsers.email%>"><br><br>
+            <label for="cty">City:</label>
+            <input type="text" id="cty" name="cty" value="<%=listUsers.city%>"><br><br>
+            <button>Save</button>
+        </fieldset>
+    </form>
+</body>
+
+</html>

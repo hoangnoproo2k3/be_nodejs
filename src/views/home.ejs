@@ -8,14 +8,88 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/home.css">
 </head>
+<style>
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        margin: 20px;
+        padding: 30px;
+    }
+
+    th,
+    td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: coral;
+    }
+</style>
 
 <body>
     <ul>
-        <li><a href="#home">Home</a></li>
-        <li><a href="#news">News</a></li>
-        <li><a href="#contact">Contact</a></li>
-        <li style="float:right"><a class="active" href="#about">About</a></li>
+        <li><a class="active" href="/">Home</a></li>
+        <li><a href="/create">Creaate users</a></li>
     </ul>
+    </head>
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Email</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Action</th>
+        </tr>
+        <!-- loop for truyền thống
+        <% for (var i=0; i < listUsers.length; i++) { %>
+            <tr>
+                <td>
+                    <%= listUsers[i].id %>
+                </td>
+                <td>
+                    <%= listUsers[i].email %>
+                </td>
+                <td>
+                    <%= listUsers[i].name %>
+                </td>
+                <td>
+                    <%= listUsers[i].city %>
+                </td>
+                <td>
+                    <button>Sửa</button>
+                    <button>Xóa</button>
+                </td>
+            </tr>
+            <% } %> -->
+        <!-- loop foreach -->
+        <% listUsers.forEach(function(user) { %>
+            <tr>
+                <td>
+                    <%= user.id %>
+                </td>
+                <td>
+                    <%= user.email %>
+                </td>
+                <td>
+                    <%= user.name %>
+                </td>
+                <td>
+                    <%= user.city %>
+                </td>
+                <td>
+                    <span style="display: flex;"> <a href="/update/<%= user.id %>">Sửa</a>
+                        <form style="margin: 0;padding: 0; padding-left: 10px;" action="/delete-user/<%= user.id %>"
+                            method="Post">
+                            <button>Xóa</button>
+                        </form>
+                    </span>
+                </td>
+            </tr>
+            <% }); %>
+    </table>
 </body>
 
 </html>

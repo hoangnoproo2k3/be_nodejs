@@ -14,4 +14,5 @@ const connection = mysql.createPool({
     idleTimeout: 60000, // idle connections timeout, in milliseconds, the default value 60000
     queueLimit: 0
 });
+
 module.exports = connection;
